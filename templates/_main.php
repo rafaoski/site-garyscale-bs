@@ -29,7 +29,7 @@
             'bg_signup' => setting('bg-signup')]);?>
         </style> 
     </head>
-<body id="page-top" class='<?=setting('html-classes')->implode(' ')?>'>
+<body id="page-top" class='<?=setting('body-classes')->implode(' ')?>'>
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
