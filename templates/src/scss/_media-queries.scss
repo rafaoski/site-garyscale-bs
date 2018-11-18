@@ -1,0 +1,24 @@
+@media only screen and (max-width: 767px) {
+
+/* CKEDITOR */
+        .align_left, .align_right, .align_center {
+            /* display images in center rather than aligned */
+            display: block;
+            float: none; 
+            margin: 1em auto;
+            max-width: 100%; 
+        }
+        
+        figure,
+        figure figcaption {
+            /* let figcaption display as wide as needed below image */
+            display: block;
+            text-align: center;
+        }
+
+/* MASTHEAD HEADING */        
+        .masthead h1 {
+            font-size: 1.8rem;
+        }
+
+}
