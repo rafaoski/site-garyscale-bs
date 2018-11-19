@@ -377,7 +377,9 @@ WebFontConfig = {
  */
 function editBtn($page) 
 {
-    if ($page->editable()) echo "\t\t<a class='button b-edit' href='" . $page->editURL . "'>" . __('Edit') . "</a>\n";
+    if ($page->editable()) {
+        echo "\t\t<a class='btn btn-outline-info fixed-top m-5 w-25' href='" . $page->editURL . "'>" . __('Edit') . ' ' . $page->title . "</a>\n\n";
+    }
 }
 
 /**
