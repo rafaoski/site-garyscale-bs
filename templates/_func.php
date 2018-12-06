@@ -384,7 +384,7 @@ function editBtn($page)
 
 /**
  *
- * @param Page $page
+ * @param string $class
  *
  */
 function debugRegions($class = 'sec-debug') 
@@ -415,8 +415,8 @@ function smartSeo($page, $options_page)
 // Reset variables
     $out = '';
     $tw_image = '';
-    $metaTitle = $page('meta_title|title');
-    $metaDescription = $page->meta_description;
+    $meta_title = $page('meta_title|title');
+    $meta_description = $page->meta_description;
 // No index
     // if (page()->check_1) {
     //     echo "\t<meta name='robots' content='noindex'>\n";
@@ -433,25 +433,25 @@ function smartSeo($page, $options_page)
 // specify scheme and host statically rather than from $page->httpUrl
 // $canonicalURL = 'https://www.domain.com' . $page->url;
     if ($options_page->canonical_url) {
-        $canonicalURL = $options_page->canonical_url . $page->url;
+        $canonical_url = $options_page->canonical_url . $page->url;
     } else {
-        $canonicalURL = setting('canonical-url');
+        $canonical_url = setting('canonical-url');
     }
 // if on a pagination, include that as part of your canonical URL
     if (input()->pageNum > 1) {
-        $canonicalURL .= config()->pageNumUrlPrefix . input()->pageNum;
+        $canonical_url .= config()->pageNumUrlPrefix . input()->pageNum;
     }
 // Get locale
     $locale = _x('en_US', 'HTML locale code');
 // Site Name
-    $siteName = setting('site-name');
+    $site_name = setting('site-name');
 // Basic Meta
     $out .= "<meta property='og:locale' content='{$locale}'/>\n";
-    $out .= "\t\t<meta property='og:site_name' content='$siteName'/>\n";
-    $out .= "\t\t<meta id='og-title' property='og:title' content='$metaTitle'/>\n";
-    $out .= "\t\t<meta id='og-desc' property='og:description' content='$metaDescription'>\n";
+    $out .= "\t\t<meta property='og:site_name' content='$site_name'/>\n";
+    $out .= "\t\t<meta id='og-title' property='og:title' content='$meta_title'/>\n";
+    $out .= "\t\t<meta id='og-desc' property='og:description' content='$meta_description'>\n";
     $out .= "\t\t<meta id='og-type' property='og:type' content='website'/>\n";
-    $out .= "\t\t<meta id='og-url' property='og:url' content='{$canonicalURL}'/>\n";
+    $out .= "\t\t<meta id='og-url' property='og:url' content='{$canonical_url}'/>\n";
 // If Page Images
     if ($page->images && count($page->images)) {
         // Get image width
@@ -466,10 +466,10 @@ function smartSeo($page, $options_page)
     }
 // Twitter Card
     $out .= "\t\t<meta name='twitter:card' content='summary_largeImage'/>\n";
-    $out .= "\t\t<meta name='twitter:title' content='$metaTitle'/>\n";
-    $out .= "\t\t<meta name='twitter:description' content='$metaDescription'/>\n";
+    $out .= "\t\t<meta name='twitter:title' content='$meta_title'/>\n";
+    $out .= "\t\t<meta name='twitter:description' content='$meta_description'/>\n";
     $out .= "$tw_image";
 // Cannonical Link
-    $out .= "\t\t<link rel='canonical' href='{$canonicalURL}'/>\n";
+    $out .= "\t\t<link rel='canonical' href='{$canonical_url}'/>\n";
     return $out;
 }
