@@ -1,4 +1,4 @@
-let mix = require('laravel-mix');
+const mix = require('laravel-mix');
 
 /*
  |--------------------------------------------------------------------------
@@ -15,18 +15,19 @@ let mix = require('laravel-mix');
 // https://github.com/JeffreyWay/laravel-mix/blob/master/docs/concatenation-and-minification.md
 mix.js('src/js/custom.js', 'assets/js')
    .sass('src/scss/master.scss', 'assets/css')
-.browserSync({
- proxy: 'http://localhost/proc-starter/', // Your local installation processwire
- files: // Watch this folders
-         [
-             "./assets/css/*.css",
-             "./assets/js/*.js",
-             "./*.php",
-             "./inc/*.php",
-             "./render/*.php",
-             "./fields/*.php"
-         ]
-});
+    .browserSync({
+    proxy: 'http://localhost/proc-starter/', // Your local installation processwire
+    files: // Watch this folders
+        [
+            "./assets/css/*.css",
+            "./assets/js/*.js",
+            "./*.php",
+            "./inc/*.php",
+            "./render/*.php",
+            "./fields/*.php"
+        ]
+    })
+.setPublicPath('assets');
 
 // POPULAR PROBLEMS
 // https://github.com/JeffreyWay/laravel-mix/issues/1072
