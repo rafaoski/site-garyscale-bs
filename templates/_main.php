@@ -15,7 +15,6 @@
 <html lang="<?=_x('en', 'HTML language code')?>" prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title><?=setting('meta-title');?> | <?=setting('site-name');?></title>
         <meta name="description" content="<?=setting('meta-description');?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,10 +23,10 @@
         <?=smartSeo(page(), setting('options'));?>
         <?=setting('css-files')->each("<link rel='stylesheet' href='{value}'>" . "\n\t\t");?>
         <style id='head-style'>
-            <?php wireIncludeFile('./inc/custom-css', 
+            <?php wireIncludeFile('./inc/custom-css',
             ['header_image' => setting('header-image'),
             'bg_signup' => setting('bg-signup')]);?>
-        </style> 
+        </style>
     </head>
 <body id="page-top" class='<?=setting('body-classes')->implode(' ')?>'>
 
@@ -38,12 +37,12 @@
     <a class="navbar-brand js-scroll-trigger" href="<?=page() == setting('home') ? '#page-top' : setting('root')?>">
       <?php if(setting('logo')) :?>
           <img src="<?=setting('logo')->url?>" alt="<?=setting('options')->logo_text;?>">
-      <?php else : 
+      <?php else :
           echo setting('options')->logo_text;
       endif;?>
     </a>
 
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" 
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <?=__('Menu');?>
       <i class="fas fa-bars"></i>
@@ -55,7 +54,7 @@
             echo renderNav(setting('home')->children, ['about','projects','signup']);
           } else {
             echo renderNav(setting('home')->children);
-          }  
+          }
         ?>
       </ul>
     </div>
@@ -92,11 +91,11 @@
     </div>
 
   </div>
-  
+
 </header>
 
 <?php // Show Breadcrumbs if is not Home Page
-if(page() != setting('home')) :?> 
+if(page() != setting('home')) :?>
 <div id="breadcrumb">
 
   <nav class='breadcrumb'>
@@ -126,7 +125,7 @@ if (page() != setting('home')) {
   </div>
 
 <?php // Footer Menu
-if(setting('options')->on_off) :?> 
+if(setting('options')->on_off) :?>
   <nav id='footer-menu' class="nav">
     <?php // https://processwire.com/docs/tutorials-old/quick-start/navigation/
       $children = setting('home')->children();
